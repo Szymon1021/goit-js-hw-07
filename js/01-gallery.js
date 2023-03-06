@@ -1,4 +1,5 @@
 import { galleryItems } from './gallery-items.js';
+
 // Change code below this line
 const gallery = document.querySelector('.gallery');
 
@@ -18,18 +19,18 @@ galleryItems.forEach((item) => {
     gallery.innerHTML += markup;
 
 });
- 
+
 gallery.onclick = (e) => {
   e.preventDefault();
-
-     const modal = document.querySelector('script.div.basicLightbox--visible');
-  console.log(modal)
 
  const instance = basicLightbox.create(`
 		<img width="1400" height="900" src="${e.target.dataset.source}">
 	`).show();
 
-;
-
+  const modal = document.querySelector('.basicLightbox');
+  document.addEventListener('keydown', (e) => {
+   if (e.code === 'Escape') {
+    modal.style.display = 'none';
+}})
+  
 }
-
